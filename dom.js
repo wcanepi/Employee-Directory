@@ -64,8 +64,9 @@ const $ = function(selector) {
         empty: empty,
         append: append,
         prepend: prepend,
-        on: on,
-        val: val
+        val: val,
+        on: on
+    
     };
     }
     
