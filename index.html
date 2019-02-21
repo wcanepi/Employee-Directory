@@ -6,64 +6,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css">
-  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
   <title>Employee Directory</title>
 </head>
 
-<body>
-    <div class="container">
-        <div class="row border mt-3">
-            <div id ="sideNav" class="col-3 bg-dark text-light p-0">
-                <ul class="list-group text-center">
-                    <li id=""  class="list-group-item fas fa-address-card bg-dark border-0"></li>
-                    <li id="view" class="list-group-item bg-dark border-0">VIEW</li>
-                    <li id="add" class="list-group-item bg-dark border-0">ADD</li>
-                    <li id="verify" class="list-group-item bg-dark border-0">VERIFY</li>
-                    <li id="update" class="list-group-item bg-dark border-0">UPDATE</li>
-                    <li id="delete" class="list-group-item bg-dark border-0">DELETE</li>
-                    
-                </ul>
-            </div>
-            <div class="col-9 bg-light py-3">
-                <div>
-                    <form name="Search">
-                        <div class="form-group">
-                            <div class="input-group">
-                                <input id="search" class="form-control" type="text">
-                                <div class="input-group-append">
-                                        <button id="btnSearch" class="btn btn-primary" type="submit"><i class="fas fa-search"></i><span class="d-none d-md-inline px-2">Search</span></button>
+<!-- <body> -->
+  <body background="./assets/images/wavy-dots.png">
+    <!-- Side Navigation -->
+      <div class="container">     
+    <div class="row h-100" style="width: 100%;">
+      <div class="col-2">
+         <nav id="sidebar">
+      
+          <ul class="list-unstyled components">
 
-                                </div>
-                            </div>
-                            <small class="form-text text-muted d-none d-mid-block">Search by Name, Phone Number, or Office</small>
-                        </div>
-                    </form>
-                    <form name="Add" class="d-none needs-validation" novalidate>
-                            <div class="form-row m-auto">
-                                <div class="col-sm-12 col-md pb-2">
-                                    <input id="name" class="form-control" type="text" placeholder="name" required>
-                                </div>
-                                <div class="col-sm-12 col-md pb-2">
-                                    <input id="phoneNumber" class="form-control" type="text" placeholder="phone number" required>
-                                </div>
-                                <div class="col-sm-12 col-md pb-2">
-                                    <input id="officeNumber" class="form-control" type="text" placeholder="office number" required>
-                                </div>
-                                <div class="px-1">
-                                    <button id="btnAdd" class="btn btn-primary" type="submit"><i class="fas fa-plus"></i><span class="px-2">Add</span></button>
-                                </div>
-                            </div>
-                        </form>
-    
-                </div>
-            </div>
+             <li> <i class=" btn fas fa-address-card btn-lg w-100" style="color:white;"></i></li>
+              
+            <li class=""><a id="view" class="active" href="#">VIEW</a></li>
+           
+            <li>
+              <a id="add" href="#">ADD</a>
+            </li>
+            <li>
+              <a id="verify" href="#">VERIFY</a>
+            </li>
+            <li>
+              <a id="update" href="#">UPDATE</a>
+            </li>
+            <li>
+              <a id="delete" href="#">DELETE</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+<!-- Had to removed most of my styling to get this working -->
+   
+         <div class="col-9 bg-light py-3">
+        <div class="pane m-3" id="viewPane" style="display: none"></div>
+        <div class="pane m-3" id="addPane" style="display: none">
+          
+          <form action="javascript:submitEmp();">
+            <input name="addEmpName" placeholder="Name" type="text" required />
+            <input name="addEmpOfficeNum" placeholder="Office Number" type="text" required />
+            <input name="addEmpPhoneNum" placeholder="Phone Number" type="text" required />
+            <button id="addBtn" type="submit">Add</button>
+          </form>
+
         </div>
-    </div>
-    <script src="app.js"></script>  
+
+        <div class="pane m-3" id="verifyPane" style="display: none">
+          <form action="javascript:verifyEmp();">
+              <input name="verifyEmpName" placeholder="Name" type="text" required />
+              <button id="verifyBtn" type="submit">Verify</button>
+          </form>
+          <h2 id="verifyAnswer" style="display: 'none';"></h2>
+        </div>
+
+        <div class="pane m-3" id="updatePane" style="display: none">
+          <form action="javascript:updateEmp();">
+            <input name="updateEmpName" placeholder="Name" type="text" required />
+            <input name="updateEmpOfficeNum" placeholder="Office Number" type="text" required />
+            <input name="updateEmpPhoneNum" placeholder="Phone Number" type="text" required />
+            <button id="updateBtn" type="submit">Update</button>
+          </form>
+        </div>
+
+        <div class="pane m-3" id="deletePane" style="display: none">
+          <form action="javascript:deleteEmp();">
+              <input name="deleteEmpName" placeholder="Name" type="text" required />
+              <button id="deleteBtn" type="submit">Delete</button>
+          </form>
+       
+        </div>
+      </div>
+
     <script src="dom.js"></script>
     <script src="employeeList.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

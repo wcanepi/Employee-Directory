@@ -1,0 +1,23 @@
+body{
+ /*   background-image: */
+    width: 100%;
+}
+#sidebar {
+    padding: 30%;
+    background-color: rgb(53, 49, 49);
+    height: 100%;
+}
+#sidebar a {
+    color: white;
+    font-weight: bold;
+}
+li {
+    text-align: center;
+}
+#sidebar a:hover {
+    text-decoration: none;
+    color: rgb(177, 163, 43);
+}
+#sidebar .active {
+    color: rgb(177, 163, 43);
+}
