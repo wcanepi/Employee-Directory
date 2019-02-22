@@ -21,3 +21,6 @@ li {
 #sidebar .active {
     color: rgb(177, 163, 43);
 }
+div {
+padding: 5px;
+}
